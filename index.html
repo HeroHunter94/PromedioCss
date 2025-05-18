@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Promedio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {background-color: rgb(202, 225, 228);}
+        h1 {
+            color:blueviolet;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: lightblue;
+            text-align:center;
+        }
+        p {
+            color:yellow;
+            border: 2px solid green;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: lightblue;
+            text-align:center;
+
+        }
+        input {
+            color:black;
+            text-align:center;
+        }
+        .error {
+            color:red;
+            text-align:center;
+        }
+    </style>
+    </head>
+<body>
+    <form>
+        <h1>Calcular Promedio<br>Ingrese a tres notas (entre 1 y 10)</h1>
+        <img src="calculator.jpg" width="1200" height="700" alt="Calculadora">
+        <p><label for = "nota1">Nota1<input type = "number" id = "nota1"></label></p>
+        <p><label for = "nota2">Nota2<input type = "number" id = "nota2"></label></p>
+        <p><label for = "nota3">Nota3<input type = "number" id = "nota3"></label></p>
+        <p><button type = "button" onclick = "promedio()">Calcular Promedio</button></p>
+        <p id = "promedio"></p>
+    </form>
+    <script>
+        function promedio(){
+            const NOTA1 = document.getElementById("nota1");
+            const NOTA2 = document.getElementById("nota2");
+            const NOTA3 = document.getElementById("nota3");
+            const RESULTADO = document.getElementById("promedio");
+
+            let nota1 = Number(NOTA1.value);
+            let nota2 = Number(NOTA2.value);
+            let nota3 = Number(NOTA3.value);
+
+            if (nota1 < 1 || nota1 > 10 || nota2 < 1 || nota2 > 10 || nota3 <1 || nota3 >10){
+                RESULTADO.innerHTML = "<span class = 'error'>Las notas deber estar entre 1 y 10</span>";
+                return;
+            }
+
+            let promedio =(nota1 + nota2 + nota3) / 3;
+            RESULTADO.innerHTML = "El promedio es: " + promedio.toFixed(2);
+            //toFixed(2) limita il numero di decimali a 2
+        }
+    </script>
+</body>
+
+</html>
